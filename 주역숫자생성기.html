@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>주역 숫자 생성기</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 10px; /* 박스를 상단에 더 가깝게 */
+        }
+        .container {
+            max-width: 400px;
+        }
+        .btn-custom, #randomNumbers {
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 0;
+            padding: 10px 0;
+        }
+        h2 {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container text-center">
+    <h2>주역 숫자 생성기</h2>
+    <div id="randomNumbers" class="alert alert-success"></div>
+    <button onclick="generateRandomNumbers()" class="btn btn-primary btn-custom">숫자 생성</button>
+</div>
+
+<script>
+function generateRandomNumbers() {
+    let arr = [];
+    while(arr.length < 2){
+        var r = Math.floor(Math.random() * 8) + 1;
+        if(arr.indexOf(r) === -1) arr.push(r);
+    }
+    document.getElementById("randomNumbers").innerHTML = `Random numbers: ${arr.join(" - ")}`;
+}
+
+// 페이지가 로드될 때 자동으로 숫자를 생성하지 않습니다.
+</script>
+
+</body>
+</html>
